@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sba</groupId>
+    <artifactId>sba-parent</artifactId>
+
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+    <description>SBA Group Micro Services</description>
+    <version>${revision}</version>
+
+    <modules>
+        <module>sba-eureka-server</module>
+        <module>sba-gateway-service</module>
+        <module>sba-payment-service</module>
+        <module>sba-search-service</module>
+        <module>sba-security-service</module>
+        <module>sba-technology-service</module>
+        <module>sba-training-service</module>
+        <module>sba-user-service</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <lombok.version>1.18.8</lombok.version>
+        <commons-lang3.version>3.8.1</commons-lang3.version>
+        <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
+        <jsonlib.verion>2.4</jsonlib.verion>
+        <springfox.version>2.8.0</springfox.version>
+        <revision>1.0</revision>
+    </properties>
+
+    <dependencies>
+        <!-- spring-boot-starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!-- spring-boot-starter-security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- jjwt -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+        <!-- gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <!-- spring-boot-starter-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- spring-boot-starter-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- spring-boot-starter-actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- spring-boot-configuration-processor -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- spring-cloud-starter-netflix-eureka-server -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+        <!-- spring-cloud-starter-openfeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!-- hystrix-javanica -->
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-javanica</artifactId>
+        </dependency>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <!-- mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+        </dependency>
+        <!-- Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring-boot-dependencies -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring-cloud-dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- sba-search-service -->
+            <dependency>
+                <groupId>com.sba</groupId>
+                <artifactId>sba-search-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- sba-security-service -->
+            <dependency>
+                <groupId>com.sba</groupId>
+                <artifactId>sba-security-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- sba-eureka-service -->
+            <dependency>
+                <groupId>com.sba</groupId>
+                <artifactId>sba-eureka-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- sba-gateway-service -->
+            <dependency>
+                <groupId>com.sba</groupId>
+                <artifactId>sba-gateway-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- sba-payment-service -->
+            <dependency>
+                <groupId>com.sba</groupId>
+                <artifactId>sba-payment-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- sba-search-service -->
+            <dependency>
+                <groupId>com.sba</groupId>
+                <artifactId>sba-search-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- sba-technology-service -->
+            <dependency>
+                <groupId>com.sba</groupId>
+                <artifactId>sba-technology-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- sba-training-service -->
+            <dependency>
+                <groupId>com.sba</groupId>
+                <artifactId>sba-training-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!-- sba-user-service -->
+            <dependency>
+                <groupId>com.sba</groupId>
+                <artifactId>sba-user-service</artifactId>
+                <version>${revision}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

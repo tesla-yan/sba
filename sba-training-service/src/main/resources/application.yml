@@ -1,0 +1,30 @@
+server:
+  port: 8094
+spring:
+  application:
+    name: sba-training-service
+  security:
+    user:
+      roles: SUPERUSER
+      name: admin
+      password: admin
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sba?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialet: org.hibernate.dialect.MySQL5Dialect
+eureka:
+  client:
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://admin:admin@localhost:8761/eureka}
+  instance:
+    preferIpAddress: true

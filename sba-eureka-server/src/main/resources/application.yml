@@ -1,0 +1,14 @@
+server:
+  port: 8761
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+spring:
+  application:
+    name: sba-eureka-server
+  security:
+    user:
+      roles: SUPERUSER
+      name: admin
+      password: admin
