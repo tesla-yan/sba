@@ -31,7 +31,7 @@
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <lombok.version>1.18.8</lombok.version>
         <commons-lang3.version>3.8.1</commons-lang3.version>
-        <mysql-connector-java.version>8.0.18</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <jsonlib.verion>2.4</jsonlib.verion>
         <springfox.version>2.8.0</springfox.version>
         <revision>1.0</revision>
